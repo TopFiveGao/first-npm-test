@@ -1,9 +1,10 @@
 {
   "name": "@frontgao/putil",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "created for testing npm publish",
   "main": "index.js",
   "type": "module",
+  "files": ["dist", "/**"],
   "scripts": {
     "dev": "npm list -g"
   },

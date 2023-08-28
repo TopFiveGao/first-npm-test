@@ -1,0 +1,20 @@
+{
+  "name": "first-npm-test",
+  "version": "1.0.0",
+  "description": "created for testing npm publish",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm list -g"
+  },
+  "keywords": [
+    "npm",
+    "packages"
+  ],
+  "author": "topfivegao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TopFiveGao/first-npm-test.git"
+  }
+}

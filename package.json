@@ -1,5 +1,5 @@
 {
-  "name": "@frontgao/first-npm-test",
+  "name": "putil",
   "version": "1.0.0",
   "description": "created for testing npm publish",
   "main": "index.js",
@@ -11,10 +11,14 @@
     "npm",
     "packages"
   ],
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
   "author": "topfivegao",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:TopFiveGao/first-npm-test.git"
+    "url": "git@github.com:TopFiveGao/putil.git"
   }
 }

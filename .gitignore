@@ -1,7 +1,6 @@
 # 编辑器
 .idea/
 .vscode/
-.npmrc
 # Logs
 logs
 *.log

@@ -1,5 +1,5 @@
 {
-  "name": "putil",
+  "name": "@frontgao/putil",
   "version": "1.0.0",
   "description": "created for testing npm publish",
   "main": "index.js",

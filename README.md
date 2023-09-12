@@ -21,6 +21,7 @@ let result = toFixed( 2.346,  1) // result: 2.3
 两种方式引入这个库的实例对象应该是不同的，网上说需要写个 shim 来处理成单例。
 
 *  package.json
+> 发布支持 require 和 import 两种规范的 js 库
 ```json
 {
   "exports": {
@@ -29,6 +30,40 @@ let result = toFixed( 2.346,  1) // result: 2.3
   }
 }
 ```
+> 发布支持 require 和 import 两种规范且兼容 ts 的库
 
+```ts
+// index.d.ts
+declare module "@frontgao/util" {
+    /**
+     * @param {number} n
+     * @param {number} digits
+     */
+    export function toFixed(n: number, digits: number): number;
+}
+```
 
+```json
+{
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}
+```
+## npm publish 的变化
+
+npm publish 如果报错没权限或者什么 private 的话，在确认登录正常，包名无冲突的情况下，那就要更换命令了！
+
+```sh
+# 默认是发私有仓库！！！
+npm publish
+
+# 这个才是正常的发布公共仓库，不会报错 403 402 啥的
+npm publish --access public
+npm publish access=public
+```
 Copyright (c) 2023-present, TopFiveGao

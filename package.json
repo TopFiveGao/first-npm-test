@@ -2,8 +2,6 @@
   "name": "@frontgao/util",
   "version": "1.0.0",
   "description": "设计用于js且兼容ts的自用工具库，目前提供有获取四舍五入数值的方法等...",
-  "main": "index.js",
-  "type": "module",
   "types":  "./dist/index.d.ts",
   "files": ["dist", "/**"],
   "keywords": [
@@ -12,8 +10,11 @@
     "packages"
   ],
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    "require": "./dist/index.cjs",
+    "import": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "author": "topfivegao",
   "license": "MIT",

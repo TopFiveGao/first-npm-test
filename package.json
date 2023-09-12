@@ -1,15 +1,14 @@
 {
-  "name": "@frontgao/putil",
-  "version": "1.0.2",
-  "description": "created for testing npm publish",
+  "name": "@frontgao/util",
+  "version": "1.0.0",
+  "description": "设计用于js且兼容ts的自用工具库，目前提供有获取四舍五入数值的方法等...",
   "main": "index.js",
   "type": "module",
+  "types":  "./dist/index.d.ts",
   "files": ["dist", "/**"],
-  "scripts": {
-    "dev": "npm list -g"
-  },
   "keywords": [
     "npm",
+    "typescript",
     "packages"
   ],
   "exports": {
@@ -20,6 +19,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:TopFiveGao/putil.git"
+    "url": "git@github.com:TopFiveGao/util.git"
   }
 }

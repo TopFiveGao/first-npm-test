@@ -1,13 +1,13 @@
-# putil
+# util
 
-该 package 用来测试向 npmjs 仓库发送自己写的库是否能正常使用。
+建立一个自用的 js 工具库，当做沉淀技术的一种方式。
 
-提供了一个方法，用来获取正常的四舍五入的值。
+目前提供的方法有： toFixed 用来获取正常的四舍五入的值，等等。
 
 ## 开始
-暂时采用的是 esm 的 import 模块导入方式, 未兼容 require 的方式引入。
+兼容两种模块导入规范，兼容 ts 类型。
 ```javascript
-import { toFixed } from 'first-npm-test'
+import { toFixed } from '@frontgao/test'
 
 let result = toFixed( 2.346,  1) // result: 2.3
     result = toFixed( 2.346,  2) // result: 2.35

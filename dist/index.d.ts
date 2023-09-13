@@ -1,7 +1,5 @@
-declare module "@frontgao/util" {
-    /**
-     * @param {number} n
-     * @param {number} digits
-     */
-    export function toFixed(n: number, digits: number): number;
-}
+/**
+ * @param {number} n
+ * @param {number} digits
+ */
+export function toFixed(n: number, digits: number): number;

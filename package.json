@@ -1,6 +1,6 @@
 {
   "name": "@frontgao/util",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "设计用于js且兼容ts的自用工具库，目前提供有获取四舍五入数值的方法等...",
   "types":  "./dist/index.d.ts",
   "files": ["dist", "/**", "!.idea", "!.vscode", "!.git", "!.gitignore"],

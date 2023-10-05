@@ -1,4 +1,5 @@
 const fs = require("node:fs");
+const {deepClone} = require("./index");
 
 /**
  * 返回一个非银行家方式的四舍五入的值, 需要注意的是 js 不支持数值末尾为0, 它会自动舍去, eg： 输入 5.0 , 输出 5
@@ -28,24 +29,42 @@ exports.isExistedFile = function (fileName) {
     })
 }
 /**
- * 根据传入的路径字符串，封装 fs.access 接口，返回文件是否存在。
+ * 根据传入的待复制文件名和目标文件名，进行文件复制并返回文件复制是否成功。
  * @param sourceFileName 待复制的文件名
  * @param targetFileName 目标文件名
  * @returns { Promise<boolean> } 是否复制成功
  */
 exports.copyFile = function (sourceFileName, targetFileName) {
-    return new Promise((resolve)=>{
+    return new Promise((resolve) => {
         const rs = fs.createReadStream(sourceFileName)
         const ws = fs.createWriteStream(targetFileName)
         rs.pipe(ws)
         rs.on('error', err => {
             resolve(false)
         })
-        ws.on('error', err=>{
+        ws.on('error', err => {
             resolve(false)
         })
-        ws.on('finish',  () =>{
+        ws.on('finish', () => {
             resolve(true)
         })
     })
+}
+/**
+ * 根据传入的js对象进行复制，返回一个新的深度克隆对象。
+ * @param origin 原始对象
+ * @returns { any } 新对象
+ */
+exports.deepClone = function (origin) {
+    if (typeof origin !== 'object' || origin === null || origin === undefined) {
+        return origin
+    }
+    const target = Array.isArray(origin)? []: {}
+    Object.setPrototypeOf(target, Object.getPrototypeOf(origin))
+    for (const key in origin) {
+        if(Object.prototype.hasOwnProperty.call(origin, key)){
+            target[key] = deepClone(origin[key])
+        }
+    }
+    return target
 }

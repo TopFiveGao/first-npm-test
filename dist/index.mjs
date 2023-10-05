@@ -31,7 +31,7 @@ export function isExistedFile(fileName) {
 }
 
 /**
- * 根据传入的路径字符串，封装 fs.access 接口，返回文件是否存在。
+ * 根据传入的待复制文件名和目标文件名，进行文件复制并返回文件复制是否成功。
  * @param sourceFileName 待复制的文件名
  * @param targetFileName 目标文件名
  * @returns { Promise<boolean> } 是否复制成功
@@ -51,4 +51,23 @@ export function copyFile(sourceFileName, targetFileName) {
             resolve(true)
         })
     })
+}
+
+/**
+ * 根据传入的js对象进行复制，返回一个新的深度克隆对象。
+ * @param origin 原始对象
+ * @returns { any } 新对象
+ */
+export function deepClone(origin) {
+    if (typeof origin !== 'object' || origin === null || origin === undefined) {
+        return origin
+    }
+    const target = Array.isArray(origin) ? [] : {}
+    Object.setPrototypeOf(target, Object.getPrototypeOf(origin))
+    for (const key in origin) {
+        if (Object.prototype.hasOwnProperty.call(origin, key)) {
+            target[key] = deepClone(origin[key])
+        }
+    }
+    return target
 }
